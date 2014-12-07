@@ -1,0 +1,53 @@
+﻿@model Facebook16.ViewModels.MainPageViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+What's on your mind? <br />
+<form action="@Url.Action("Index")" method="POST">
+    <textarea rows="3" cols="32" id="write-wall" name="message" maxlength="400"></textarea>
+    <br />
+    <input id="btn-write-wall" type="submit" value="submit" />
+</form>
+<hr />
+<h2>Wall</h2>
+<table width="100%">
+    @foreach (var post in Model.Posts)
+    {
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <img src="@Url.Content("~/Picture/Profile/" + post.From.Id)" width="42" height="42" />
+                        </td>
+                        <td>
+                            <table>
+                                <tr><td><b>@post.From.Name</b></td></tr>
+                                <tr><td>@post.CreatedTime</td></tr>
+                                <tr><td>@post.Story</td></tr>
+                                <tr><td>@post.Caption</td></tr>
+                                <tr><td>@post.Message</td></tr>
+                                @if (!string.IsNullOrWhiteSpace(post.Picture))
+                                {
+                                    <tr><td><img src="@post.Picture" /></td></tr>
+                                }
+                                <tr>
+                                    <td>
+                                        <form>
+                                            <input type="button" value="Like" />
+                                            <input type="button" value="Share" />
+                                            <input type="button" value="Comments" />
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+            </td>
+        </tr>
+    }
+</table>

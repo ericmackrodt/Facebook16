@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+<body bgcolor="#E7EBF2">
+    <a href="@ViewBag.AuthUrl">authorization</a>
+    <table align="center" cellspacing="0" border="0" width="700px" bgcolor="#FFFFFF">
+        <tr bgcolor="#3B5998">
+            <td><font color="#ffffff">Facebook 16</font></td>
+            <td align="right">
+                <font color="#ffffff">friend requests (1) | messages (1) | notifications (16)</font>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table cellspacing="1" border="0" cellpadding="2" width="100%">
+                    <tr>
+                        <td bgcolor="#3B5998">
+                            <font color="#ffffff">
+                                <b>@Model.Profile.Name</b>
+                            </font>
+                            <br />
+                            <img src="@Url.Content("~/Picture/Profile/" + Model.Profile.Id)" width="64px" height="64px" color="#FFFFFF" />
+                        </td>
+                    </tr>
+                    <tr><td bgcolor="#3B5998"><a href="#" style="color:#FFFFFF;text-decoration:none"><font color="#ffffff">Wall</font></a></td></tr>
+                    <tr><td bgcolor="#3B5998"><a href="#" style="color:#FFFFFF;text-decoration:none"><font color="#ffffff">Profile</font></a></td></tr>
+                    <tr><td bgcolor="#3B5998"><a href="#" style="color:#FFFFFF;text-decoration:none"><font color="#ffffff">Friends (202)</font></a></td></tr>
+                    <tr><td bgcolor="#3B5998"><a href="#" style="color:#FFFFFF;text-decoration:none"><font color="#ffffff">Messages (1)</font></a></td></tr>
+                    <tr><td bgcolor="#3B5998"><a href="#" style="color:#FFFFFF;text-decoration:none"><font color="#ffffff">Photos</font></a></td></tr>
+                </table>
+            </td>
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
